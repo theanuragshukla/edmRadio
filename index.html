@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>EDM-RADIO</title>
+	<style>
+video::-webkit-media-controls {
+  display: none;
+}
+video {
+  pointer-events: none;
+}
+	</style>
+	<script src="/static/js/hls.js@latest"></script>
+</head>
+<body>
+	<button onclick="joinParty(this)" >Join Party</button>
+	<video id = "player" autoplay="autoplay"></video>
+	<script src="/static/js/script.js"></script>
+</body>
+</html>
