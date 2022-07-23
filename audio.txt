@@ -1,1 +1,4 @@
-file 'melodies.mp3'
+file 'audio/mp3/melodies.mp3'
+file 'audio/mp3/axwell.mp3' 
+file 'audio/mp3/heroes.mp3' 
+file 'audio/mp3/sweetdreams.mp3'

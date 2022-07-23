@@ -1,7 +1,10 @@
 const video = document.getElementById("player");
-const url = "http://localhost:3000/static/test.m3u8";
+const url = "/static/test.m3u8";
 function joinParty(e){
-	e.style.display="none"
+	e.setAttribute('onclick',"leaveParty(this)")
+	e.classList.add('pulse-button')
+	e.blur()
+	e.innerHTML="Leave Party"
 	if(Hls.isSupported())
 	{
 		var hls = new Hls();
@@ -10,6 +13,7 @@ function joinParty(e){
 		hls.on(Hls.Events.MANIFEST_PARSED,function()
 			{
 				video.play();
+				video.currentTime = video.duration - 1
 			});
 	}
 	else if (video.canPlayType('application/vnd.apple.mpegurl'))
@@ -18,7 +22,15 @@ function joinParty(e){
 		video.addEventListener('canplay',function()
 			{
 				video.play();
+				video.currentTime = video.duration - 1
 			});
 	}
 
+}
+function leaveParty(e){
+	video.pause()
+	e.classList.remove('pulse-button')
+	e.blur()
+	e.innerHTML="Join Party"
+	e.setAttribute('onclick',"joinParty(this)")
 }
